@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.V. Consultoría</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-item brand" onclick="mostrarSeccion('inicio')">M.V.</div>
+            <div class="nav-item" onclick="mostrarSeccion('nosotros')"><a href="#">Nosotros</a></div>
+            <div class="nav-item" onclick="mostrarSeccion('proyectos')"><a href="#">Proyectos</a></div>
+            <div class="nav-item" onclick="mostrarSeccion('servicios')"><a href="#">Servicios</a></div>
+            <div class="nav-item active" onclick="mostrarSeccion('contacto')"><a href="#">Contacto</a></div>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        
+        <section id="inicio" class="content-card hidden">
+            <h2>Bienvenidos a M.V. Consultoría</h2>
+            <p>Optimizamos tu infraestructura tecnológica para el futuro.</p>
+        </section>
+
+        <section id="nosotros" class="content-card hidden">
+            <h2>Sobre Nosotros</h2>
+            <p>Somos expertos en arquitectura de hardware y redes.</p>
+            <ul style="margin-top: 15px; text-align: left;">
+                <li>+10 Años de experiencia</li>
+                <li>Certificaciones Cisco & Linux</li>
+                <li>Soporte 24/7</li>
+            </ul>
+        </section>
+
+        <section id="proyectos" class="content-card hidden">
+            <h2>Proyectos Recientes</h2>
+            <p>Explora nuestros casos de éxito en virtualización y servidores.</p>
+            <div class="project-placeholder">Implementación Data Center T1</div>
+            <div class="project-placeholder">Red Corporativa Segura</div>
+        </section>
+
+        <section id="servicios" class="content-card hidden">
+            <h2>Nuestros Servicios</h2>
+            <p>Hardware, Redes y Consultoría IT.</p>
+        </section>
+
+        <section id="contacto" class="content-card active-card">
+            <form id="contactForm">
+                <div class="input-group email-group">
+                    <span class="icon">@</span>
+                    <input type="email" id="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="input-group">
+                    <label class="sr-only" for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Nombre" required>
+                </div>
+                <div class="input-group">
+                    <label for="notas">Notas:</label>
+                    <textarea id="notas" rows="6" placeholder="Escribe aquí los detalles de tu consulta..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Solicitud</button>
+            </form>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

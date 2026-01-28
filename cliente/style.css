@@ -1,0 +1,206 @@
+/* --- Reset Básico --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* --- Barra de Navegación (Estilo Caja/Pizarrón) --- */
+header {
+    background-color: #fff;
+    border-bottom: 2px solid #333;
+    margin-bottom: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    max-width: 100%;
+}
+
+.nav-item {
+    flex: 1; /* Esto hace que todas las cajas tengan el mismo ancho */
+    text-align: center;
+    border-right: 2px solid #333; /* Líneas divisorias como en el dibujo */
+    padding: 15px 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-item:last-child {
+    border-right: none; /* Quita el borde del último elemento */
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.nav-item.brand {
+    font-size: 1.3rem;
+    background-color: #e0e0e0; /* Un poco más oscuro para destacar M.V. */
+}
+
+.nav-item:hover {
+    background-color: #f0f0f0;
+}
+
+.nav-item.active {
+    background-color: #333;
+}
+
+.nav-item.active a {
+    color: #fff;
+}
+
+/* --- Contenedor Principal --- */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 80vh;
+}
+
+/* --- Tarjeta del Formulario --- */
+.contact-card {
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 20px; /* Bordes redondeados como en el dibujo */
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.1); /* Sombra sólida estilo boceto */
+}
+
+/* --- Grupos de Inputs --- */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Estilo especial para el icono @ */
+.email-group {
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 25px;
+    background-color: #fafafa;
+}
+
+.email-group .icon {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.email-group input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    background: transparent;
+}
+
+/* --- Estilos Generales de Inputs --- */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #0056b3;
+    background-color: #fdfdfd;
+}
+
+/* Etiqueta de texto (Notas) */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+/* Simulación de líneas de cuaderno para el textarea */
+#notas {
+    background-image: repeating-linear-gradient(transparent, transparent 30px, #eee 31px);
+    line-height: 31px;
+    resize: vertical;
+}
+
+/* --- Botón --- */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #333;
+}
+
+.btn-submit:active {
+    transform: scale(0.98);
+}
+
+
+/* Efecto de cursor para los botones del menú */
+.nav-item {
+    cursor: pointer;
+    user-select: none; /* Evita que se seleccione el texto al dar clic rápido */
+}
+
+/* Clases para manejar la visibilidad */
+.hidden {
+    display: none;
+}
+
+/* Estilos para las nuevas tarjetas de contenido */
+.content-card {
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+    animation: fadeIn 0.4s ease-in-out; /* Animación suave al aparecer */
+    text-align: center;
+}
+
+.project-placeholder {
+    background: #eee;
+    border: 1px dashed #333;
+    padding: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Animación simple */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Asegúrate de que el body y html sigan igual que antes */
