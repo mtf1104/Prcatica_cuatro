@@ -28,7 +28,7 @@ const transporter = nodemailer.createTransport({
     secure: true, // true para puerto 465, false para otros puertos
     auth: {
         user: 'martintellezfalcon70@gmail.com', // <--- TU CORREO GMAIL
-        pass: 'jifl djvw uwob uytl'           // <--- AQUÍ PEGAS LA CONTRASEÑA DE APLICACIÓN (NO la normal)
+        pass: 'Aqui va la contraseña de el correo'           // <--- AQUÍ PEGAS LA CONTRASEÑA DE APLICACIÓN (NO la normal)
     }
 });
 
