@@ -3,66 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M.V. Consultoría</title>
+    <title>M.V. Consultoría de Hardware</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <nav class="navbar">
-            <div class="nav-item brand" onclick="mostrarSeccion('inicio')">M.V.</div>
-            <div class="nav-item" onclick="mostrarSeccion('nosotros')"><a href="#">Nosotros</a></div>
-            <div class="nav-item" onclick="mostrarSeccion('proyectos')"><a href="#">Proyectos</a></div>
-            <div class="nav-item" onclick="mostrarSeccion('servicios')"><a href="#">Servicios</a></div>
-            <div class="nav-item active" onclick="mostrarSeccion('contacto')"><a href="#">Contacto</a></div>
+            <div class="logo" onclick="mostrarSeccion('inicio')">
+                <i class="fa-solid fa-microchip"></i> M.V. Hardware
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item" onclick="mostrarSeccion('nosotros')"><a href="#">Nosotros</a></li>
+                <li class="nav-item" onclick="mostrarSeccion('proyectos')"><a href="#">Proyectos</a></li>
+                <li class="nav-item" onclick="mostrarSeccion('servicios')"><a href="#">Servicios</a></li>
+                <li class="nav-item btn-contact" onclick="mostrarSeccion('contacto')"><a href="#">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
     <main class="main-container">
         
-        <section id="inicio" class="content-card hidden">
-            <h2>Bienvenidos a M.V. Consultoría</h2>
-            <p>Optimizamos tu infraestructura tecnológica para el futuro.</p>
+        <section id="inicio" class="section-content active-section fade-in">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1 id="greeting">Bienvenido</h1>
+                    <h2>Expertos en Infraestructura Física</h2>
+                    <p>Diseño, montaje y optimización de Data Centers, servidores y redes de alto rendimiento.</p>
+                    <div class="tech-specs">
+                        <span><i class="fa-solid fa-server"></i> Servidores Rack/Blade</span>
+                        <span><i class="fa-solid fa-network-wired"></i> Cableado Estructurado</span>
+                    </div>
+                    <button class="btn-primary" onclick="mostrarSeccion('proyectos')">Ver Instalaciones</button>
+                </div>
+                <div class="hero-img">
+                    <img src="https://hiramnoriega.com/wp-content/uploads/2022/09/Ingeniero-revisando-sistemas-fisicos-en-un-data-center-1024x577.jpg" alt="Ingeniero trabajando en Data Center">
+                </div>
+            </div>
         </section>
 
-        <section id="nosotros" class="content-card hidden">
-            <h2>Sobre Nosotros</h2>
-            <p>Somos expertos en arquitectura de hardware y redes.</p>
-            <ul style="margin-top: 15px; text-align: left;">
-                <li>+10 Años de experiencia</li>
-                <li>Certificaciones Cisco & Linux</li>
-                <li>Soporte 24/7</li>
+        <section id="nosotros" class="section-content hidden fade-in">
+            <h2 class="section-title">Ingeniería de Hardware</h2>
+            <div class="about-grid">
+                <div class="card">
+                    <i class="fa-solid fa-screwdriver-wrench icon-large"></i>
+                    <h3>Manos a la obra</h3>
+                    <p>No solo consultamos, implementamos. Experiencia física en montaje de equipos críticos.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-plug-circle-bolt icon-large"></i>
+                    <h3>Energía y Refrigeración</h3>
+                    <p>Diseño de soluciones de UPS y sistemas de enfriamiento para alta densidad.</p>
+                </div>
+                <div class="card">
+                    <i class="fa-solid fa-shield-cat icon-large"></i>
+                    <h3>Garantía Física</h3>
+                    <p>Auditoría de estado físico de componentes y gestión de garantías con fabricantes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyectos" class="section-content hidden fade-in">
+            <h2 class="section-title">Instalaciones Recientes</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.lxnjXDnqX5StCNtTbmyWawHaF2?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Cableado Estructurado">
+                    <div class="p-info">
+                        <h3>Cableado Estructurado Cat6A</h3>
+                        <p>Organización y certificación de 500 nodos de red corporativa.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://www.eabel.com/wp-content/uploads/2024/11/A-technician-placing-a-server-into-a-data-center-rack.webp" alt="Montaje de Servidores">
+                    <div class="p-info">
+                        <h3>Migración de Data Center</h3>
+                        <p>Traslado físico y montaje de 20 racks de servidores blade sin interrupciones.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1563770660941-20978e870e26?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Upgrade de Hardware">
+                    <div class="p-info">
+                        <h3>Upgrade de Infraestructura</h3>
+                        <p>Renovación de memorias y almacenamiento NVMe en clúster de alto rendimiento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios" class="section-content hidden fade-in">
+            <h2 class="section-title">Servicios de Infraestructura</h2>
+            <ul class="service-list hardware-focus">
+                <li><i class="fa-solid fa-dolly"></i> Procurement (Compra) de Equipo Especializado</li>
+                <li><i class="fa-solid fa-server"></i> Montaje físico de Racks y Gabinetes</li>
+                <li><i class="fa-solid fa-broom"></i> Mantenimiento Físico Preventivo (Limpieza interna)</li>
+                <li><i class="fa-solid fa-temperature-arrow-down"></i> Auditoría Térmica y Energética</li>
             </ul>
         </section>
 
-        <section id="proyectos" class="content-card hidden">
-            <h2>Proyectos Recientes</h2>
-            <p>Explora nuestros casos de éxito en virtualización y servidores.</p>
-            <div class="project-placeholder">Implementación Data Center T1</div>
-            <div class="project-placeholder">Red Corporativa Segura</div>
-        </section>
+        <section id="contacto" class="section-content hidden fade-in">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Cotiza tu Hardware</h3>
+                    <p>¿Necesitas renovar servidores o diseñar tu red física? Hablemos.</p>
+                    <div class="info-item"><i class="fa-solid fa-envelope"></i> conaultoriahadweretellez@outlook.com</div>
+                    <div class="info-item"><i class="fa-solid fa-location-dot"></i> Ciudad de México, Taller Central</div>
+                </div>
 
-        <section id="servicios" class="content-card hidden">
-            <h2>Nuestros Servicios</h2>
-            <p>Hardware, Redes y Consultoría IT.</p>
-        </section>
-
-        <section id="contacto" class="content-card active-card">
-            <form id="contactForm">
-                <div class="input-group email-group">
-                    <span class="icon">@</span>
-                    <input type="email" id="email" placeholder="Correo electrónico" required>
-                </div>
-                <div class="input-group">
-                    <label class="sr-only" for="nombre">Nombre</label>
-                    <input type="text" id="nombre" placeholder="Nombre" required>
-                </div>
-                <div class="input-group">
-                    <label for="notas">Notas:</label>
-                    <textarea id="notas" rows="6" placeholder="Escribe aquí los detalles de tu consulta..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Enviar Solicitud</button>
-            </form>
+                <form id="contactForm" class="modern-form">
+                    <h3>Enviar Requerimiento</h3>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope input-icon"></i>
+                        <input type="email" id="email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user input-icon"></i>
+                        <input type="text" id="nombre" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <textarea id="notas" rows="5" placeholder="Describe el equipo o servicio que necesitas..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit" id="btnSubmit">
+                        <span>Solicitar Cotización</span> <i class="fa-solid fa-screwdriver"></i>
+                    </button>
+                    <p id="statusMessage" class="status-msg"></p>
+                </form>
+            </div>
         </section>
 
     </main>

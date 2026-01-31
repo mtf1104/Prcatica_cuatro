@@ -28,7 +28,7 @@ const transporter = nodemailer.createTransport({
     secure: true, // true para puerto 465, false para otros puertos
     auth: {
         user: 'martintellezfalcon70@gmail.com', // <--- TU CORREO GMAIL
-        pass: 'Aqui va la contraseña de el correo'           // <--- AQUÍ PEGAS LA CONTRASEÑA DE APLICACIÓN (NO la normal)
+        pass: 'Cabia esto por tu contraseña real'           // <--- AQUÍ PEGAS LA CONTRASEÑA DE APLICACIÓN (NO la normal)
     }
 });
 
@@ -66,3 +66,4 @@ app.post('/api/contacto', (req, res) => {
 app.listen(3000, () => {
     console.log('Servidor corriendo en puerto 3000');
 });
+
