@@ -8,61 +8,128 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// 1. Configuración de la Base de Datos
+
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '', 
-    database: 'consultoria_db'
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'consultoria_db'
 });
 
 db.connect(err => {
-    if (err) throw err;
-    console.log('Conectado a la Base de Datos MySQL');
+  if (err) {
+    console.error('Error al conectar a MySQL:', err);
+    process.exit(1);
+  }
+  console.log('Conectado a la Base de Datos MySQL');
 });
 
-// 2. NUEVA Configuración del Correo (GMAIL)
+// 
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true, // true para puerto 465, false para otros puertos
-    auth: {
-        user: 'martintellezfalcon70@gmail.com', // <--- TU CORREO GMAIL
-        pass: 'Aqui va la contraseña de el correo'           // <--- AQUÍ PEGAS LA CONTRASEÑA DE APLICACIÓN (NO la normal)
-    }
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'gamboadavid1005@gmail.com',
+    pass: 'kcqf dvdt ypoy hcls'
+  }
 });
 
-// 3. Ruta para recibir el formulario
+app.get('/', (req, res) => {
+  res.send('Servidor OK');
+});
+
 app.post('/api/contacto', (req, res) => {
-    const { nombre, email, notas } = req.body;
+  const { nombre, email, notas } = req.body;
 
-    const sql = 'INSERT INTO contactos (nombre, email, notas) VALUES (?, ?, ?)';
-    db.query(sql, [nombre, email, notas], (err, result) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).send('Error al guardar en BD');
-        }
+  if (!nombre || !email) {
+    return res.status(400).send('Faltan datos (nombre o email)');
+  }
 
-        // Configuración del mensaje
-        const mailOptions = {
-            from: '"M.V. Consultoría" <martintellezfalcon@gmail.com>', // Debe ser el mismo correo de arriba
-            to: email, // Se envía al correo que puso el cliente en el formulario
-            subject: 'Recibimos tu solicitud - M.V. Consultoría',
-            text: `Hola ${nombre},\n\nHemos recibido tu solicitud correctamente.\nNuestro equipo revisará tus notas: "${notas}" y te contactará pronto.\n\nSaludos,\nEquipo M.V.`
-        };
+  const mensaje = notas || '';
+  const sql = 'INSERT INTO contactos (nombre, correo, mensaje) VALUES (?, ?, ?)';
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                console.log('Error al enviar correo:', error);
-                return res.status(200).send('Guardado en BD, pero falló el correo.');
-            } else {
-                console.log('Correo enviado: ' + info.response);
-                return res.status(200).send('¡Éxito! Guardado y correo enviado.');
-            }
-        });
+  db.query(sql, [nombre, email, mensaje], (err) => {
+    if (err) {
+      console.error('Error al guardar en BD:', err);
+      return res.status(500).send('Error al guardar en BD');
+    }
+
+    const mailOptions = {
+      from: '"M.V. Consultoría" <martintellezfalcon70@gmail.com>',
+      to: email,
+      subject: 'Recibimos tu solicitud - M.V. Consultoría',
+      text:
+        `Hola ${nombre},\n\n` +
+        `Hemos recibido tu solicitud correctamente.\n` +
+        `Nuestro equipo revisará tu mensaje y te contactará pronto.\n\n` +
+        `Mensaje recibido:\n"${mensaje}"\n\n` +
+        `Saludos,\nEquipo M.V.`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log('Error al enviar correo:', error);
+        return res.status(200).send('Guardado en BD, pero falló el correo.');
+      }
+      console.log('Correo enviado:', info.response);
+      return res.status(200).send('¡Éxito! Guardado y correo enviado.');
     });
+  });
+});
+
+app.post('/api/login', (req, res) => {
+  const { usuario, password } = req.body;
+
+  if (!usuario || !password) {
+    return res.status(400).send('Faltan credenciales');
+  }
+
+  const user = String(usuario).trim();
+  const pass = String(password).trim();
+
+  // ✅ SOLO password (porque tu tabla no tiene password_hash)
+  const sql = "SELECT id, usuario, password FROM administradores WHERE usuario = ? LIMIT 1";
+
+  db.query(sql, [user], (err, rows) => {
+    if (err) {
+      console.error('Error en login:', err);
+      return res.status(500).send('Error interno del servidor');
+    }
+
+    if (!rows || rows.length === 0) {
+      return res.status(401).send('Usuario o contraseña incorrectos');
+    }
+
+    const admin = rows[0];
+
+    // ✅ comparación directa
+    if (String(admin.password).trim() !== pass) {
+      return res.status(401).send('Usuario o contraseña incorrectos');
+    }
+
+    // Token simple para el panel admin
+    const token = `admin-${admin.id}-${Date.now()}`;
+    return res.json({ token, usuario: admin.usuario });
+  });
+});
+
+app.get('/api/contactos', (req, res) => {
+  const auth = req.headers.authorization || '';
+  if (!auth.startsWith('Bearer ')) {
+    return res.status(401).send('No autorizado');
+  }
+
+  const sql = 'SELECT nombre, correo, mensaje, fecha FROM contactos ORDER BY fecha DESC';
+  db.query(sql, (err, rows) => {
+    if (err) {
+      console.error('Error al traer contactos:', err);
+      return res.status(500).send('Error al obtener contactos');
+    }
+    return res.json(rows);
+  });
 });
 
 app.listen(3000, () => {
-    console.log('Servidor corriendo en puerto 3000');
+  console.log('Servidor corriendo en http://localhost:3000');
 });

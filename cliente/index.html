@@ -8,65 +8,165 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <div class="nav-item brand" onclick="mostrarSeccion('inicio')">M.V.</div>
-            <div class="nav-item" onclick="mostrarSeccion('nosotros')"><a href="#">Nosotros</a></div>
-            <div class="nav-item" onclick="mostrarSeccion('proyectos')"><a href="#">Proyectos</a></div>
-            <div class="nav-item" onclick="mostrarSeccion('servicios')"><a href="#">Servicios</a></div>
-            <div class="nav-item active" onclick="mostrarSeccion('contacto')"><a href="#">Contacto</a></div>
-        </nav>
-    </header>
+<header>
+    <nav class="navbar">
+        <div class="nav-item brand" onclick="mostrarSeccion('inicio')">M.V.</div>
+        <div class="nav-item" onclick="mostrarSeccion('nosotros')"><a href="#">Nosotros</a></div>
+        <div class="nav-item" onclick="mostrarSeccion('proyectos')"><a href="#">Proyectos</a></div>
+        <div class="nav-item" onclick="mostrarSeccion('servicios')"><a href="#">Servicios</a></div>
+        <div class="nav-item active" onclick="mostrarSeccion('contacto')"><a href="#">Contacto</a></div>
+        <div class="nav-item" onclick="mostrarSeccion('login')"><a href="#">Login</a></div>
+        <div class="nav-item" id="navAdmin" onclick="mostrarSeccion('admin')" style="display:none;">
+            <a href="#">Panel</a>
+        </div>
+    </nav>
+</header>
 
-    <main class="main-container">
-        
-        <section id="inicio" class="content-card hidden">
-            <h2>Bienvenidos a M.V. Consultoría</h2>
-            <p>Optimizamos tu infraestructura tecnológica para el futuro.</p>
-        </section>
+<main class="main-container">
 
-        <section id="nosotros" class="content-card hidden">
-            <h2>Sobre Nosotros</h2>
-            <p>Somos expertos en arquitectura de hardware y redes.</p>
-            <ul style="margin-top: 15px; text-align: left;">
-                <li>+10 Años de experiencia</li>
-                <li>Certificaciones Cisco & Linux</li>
-                <li>Soporte 24/7</li>
-            </ul>
-        </section>
+    <section id="inicio" class="content-card hidden">
+        <h2>Bienvenidos a M.V. Consultoría</h2>
+        <p>Optimizamos tu infraestructura tecnológica para el futuro.</p>
+    </section>
 
-        <section id="proyectos" class="content-card hidden">
-            <h2>Proyectos Recientes</h2>
-            <p>Explora nuestros casos de éxito en virtualización y servidores.</p>
-            <div class="project-placeholder">Implementación Data Center T1</div>
-            <div class="project-placeholder">Red Corporativa Segura</div>
-        </section>
+    <section id="nosotros" class="content-card hidden">
+        <h2>Sobre Nosotros</h2>
+        <p>Somos expertos en arquitectura de hardware y redes.</p>
+        <ul style="margin-top:15px;text-align:left;">
+            <li>+10 años de experiencia</li>
+            <li>Certificaciones Cisco & Linux</li>
+            <li>Soporte 24/7</li>
+        </ul>
+    </section>
 
-        <section id="servicios" class="content-card hidden">
-            <h2>Nuestros Servicios</h2>
-            <p>Hardware, Redes y Consultoría IT.</p>
-        </section>
+    <section id="proyectos" class="content-card hidden">
+        <h2>Proyectos Recientes</h2>
+        <p>Explora nuestros casos de éxito.</p>
+        <div class="project-placeholder">Implementación Data Center</div>
+        <div class="project-placeholder">Red Corporativa Segura</div>
+    </section>
 
-        <section id="contacto" class="content-card active-card">
-            <form id="contactForm">
-                <div class="input-group email-group">
-                    <span class="icon">@</span>
-                    <input type="email" id="email" placeholder="Correo electrónico" required>
-                </div>
-                <div class="input-group">
-                    <label class="sr-only" for="nombre">Nombre</label>
-                    <input type="text" id="nombre" placeholder="Nombre" required>
-                </div>
-                <div class="input-group">
-                    <label for="notas">Notas:</label>
-                    <textarea id="notas" rows="6" placeholder="Escribe aquí los detalles de tu consulta..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Enviar Solicitud</button>
-            </form>
-        </section>
+    <section id="servicios" class="content-card hidden">
+        <h2>Nuestros Servicios</h2>
+        <p>Soluciones completas para mejorar rendimiento, seguridad y continuidad operativa.</p>
 
-    </main>
+            <div class="service-card">
+                <h3>Seguridad Informática</h3>
+                <p>Protección por capas para reducir riesgos y garantizar la integridad de la información.</p>
+                <ul class="service-list">
+                    <li>Hardening y buenas prácticas</li>
+                    <li>Firewall y reglas de acceso</li>
+                    <li>Auditoría básica y reporte</li>
+                </ul>
+            </div>
 
-    <script src="script.js"></script>
+         
+
+            <div class="service-card">
+                <h3>Mantenimiento Preventivo</h3>
+                <p>Planes de mantenimiento para evitar fallas y extender la vida útil de la infraestructura.</p>
+                <ul class="service-list">
+                    <li>Limpieza y diagnóstico</li>
+                    <li>Actualizaciones y parches</li>
+                    <li>Checklist y evidencia</li>
+                </ul>
+            </div>
+
+       
+
+            <div class="service-card">
+                <h3>Consultoría y Soporte</h3>
+                <p>Acompañamiento técnico para toma de decisiones, incidencias y mejora continua.</p>
+                <ul class="service-list">
+                    <li>Soporte remoto/presencial</li>
+                    <li>Documentación técnica</li>
+                    <li>Capacitación básica</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="services-cta">
+            <div class="cta-box">
+                <h3>¿Listo para cotizar?</h3>
+                <p>Cuéntanos tu necesidad y te respondemos con una propuesta clara y personalizada.</p>
+                <button class="btn-submit" type="button" onclick="mostrarSeccion('contacto')">Solicitar Cotización</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="content-card active-card">
+        <h2>Contacto</h2>
+
+        <form id="contactForm">
+            <div class="input-group email-group">
+                <span class="icon">@</span>
+                <input type="email" id="email" placeholder="Correo electrónico" required>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+            </div>
+
+            <div class="input-group">
+                <label for="notas">Notas:</label>
+                <textarea id="notas" rows="5" placeholder="Escribe aquí los detalles de tu consulta..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar Solicitud</button>
+        </form>
+    </section>
+
+    <section id="login" class="content-card hidden">
+        <h2>Acceso Administrador</h2>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <input type="text" id="usuario" placeholder="Usuario" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Contraseña" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Ingresar</button>
+        </form>
+
+        <p style="margin-top:10px;font-size:14px;color:#666;">
+            Acceso exclusivo para administradores
+        </p>
+    </section>
+
+    <section id="admin" class="content-card hidden">
+        <h2>Panel de Administración</h2>
+        <p>Personas que se han puesto en contacto con la consultoría:</p>
+
+        <div style="margin-top:15px;overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;">
+                <thead>
+                <tr>
+                    <th style="text-align:left;padding:10px;border-bottom:1px solid #ddd;">Nombre</th>
+                    <th style="text-align:left;padding:10px;border-bottom:1px solid #ddd;">Correo</th>
+                    <th style="text-align:left;padding:10px;border-bottom:1px solid #ddd;">Mensaje</th>
+                    <th style="text-align:left;padding:10px;border-bottom:1px solid #ddd;">Fecha</th>
+                </tr>
+                </thead>
+                <tbody id="contactosBody">
+                <tr>
+                    <td colspan="4" style="padding:10px;">
+                        Inicia sesión para visualizar los mensajes.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button class="btn-submit" id="btnLogout" style="margin-top:15px;">
+            Cerrar sesión
+        </button>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
 </body>
 </html>

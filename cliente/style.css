@@ -1,4 +1,4 @@
-/* --- Reset Básico --- */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,7 +11,7 @@ body {
     color: #333;
 }
 
-/* --- Barra de Navegación (Estilo Caja/Pizarrón) --- */
+
 header {
     background-color: #fff;
     border-bottom: 2px solid #333;
@@ -26,15 +26,15 @@ header {
 }
 
 .nav-item {
-    flex: 1; /* Esto hace que todas las cajas tengan el mismo ancho */
+    flex: 1; 
     text-align: center;
-    border-right: 2px solid #333; /* Líneas divisorias como en el dibujo */
+    border-right: 2px solid #333; 
     padding: 15px 5px;
     transition: background-color 0.3s;
 }
 
 .nav-item:last-child {
-    border-right: none; /* Quita el borde del último elemento */
+    border-right: none; 
 }
 
 .nav-item a {
@@ -47,7 +47,7 @@ header {
 
 .nav-item.brand {
     font-size: 1.3rem;
-    background-color: #e0e0e0; /* Un poco más oscuro para destacar M.V. */
+    background-color: #e0e0e0; 
 }
 
 .nav-item:hover {
@@ -62,7 +62,7 @@ header {
     color: #fff;
 }
 
-/* --- Contenedor Principal --- */
+
 .main-container {
     display: flex;
     justify-content: center;
@@ -71,23 +71,22 @@ header {
     min-height: 80vh;
 }
 
-/* --- Tarjeta del Formulario --- */
+
 .contact-card {
     background: #fff;
     border: 2px solid #333;
-    border-radius: 20px; /* Bordes redondeados como en el dibujo */
+    border-radius: 20px; 
     padding: 40px;
     width: 100%;
     max-width: 500px;
-    box-shadow: 10px 10px 0px rgba(0,0,0,0.1); /* Sombra sólida estilo boceto */
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.1); 
 }
 
-/* --- Grupos de Inputs --- */
+
 .input-group {
     margin-bottom: 20px;
 }
 
-/* Estilo especial para el icono @ */
 .email-group {
     text-align: center;
     border: 2px solid #333;
@@ -111,7 +110,7 @@ header {
     background: transparent;
 }
 
-/* --- Estilos Generales de Inputs --- */
+
 input, textarea {
     width: 100%;
     padding: 12px;
@@ -126,7 +125,6 @@ input:focus, textarea:focus {
     background-color: #fdfdfd;
 }
 
-/* Etiqueta de texto (Notas) */
 label {
     display: block;
     font-weight: bold;
@@ -134,14 +132,12 @@ label {
     font-size: 1.1rem;
 }
 
-/* Simulación de líneas de cuaderno para el textarea */
 #notas {
     background-image: repeating-linear-gradient(transparent, transparent 30px, #eee 31px);
     line-height: 31px;
     resize: vertical;
 }
 
-/* --- Botón --- */
 .btn-submit {
     width: 100%;
     padding: 15px;
@@ -165,18 +161,16 @@ label {
 }
 
 
-/* Efecto de cursor para los botones del menú */
 .nav-item {
     cursor: pointer;
-    user-select: none; /* Evita que se seleccione el texto al dar clic rápido */
+    user-select: none; 
 }
 
-/* Clases para manejar la visibilidad */
+
 .hidden {
     display: none;
 }
 
-/* Estilos para las nuevas tarjetas de contenido */
 .content-card {
     background: #fff;
     border: 2px solid #333;
@@ -185,7 +179,7 @@ label {
     width: 100%;
     max-width: 500px;
     box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
-    animation: fadeIn 0.4s ease-in-out; /* Animación suave al aparecer */
+    animation: fadeIn 0.4s ease-in-out;
     text-align: center;
 }
 
@@ -197,10 +191,8 @@ label {
     font-weight: bold;
 }
 
-/* Animación simple */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Asegúrate de que el body y html sigan igual que antes */
